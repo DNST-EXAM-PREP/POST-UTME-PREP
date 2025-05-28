@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz App - DELSU | UNIBEN | School of Nursing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f4f4f4;
+    }
+    nav {
+      margin-bottom: 20px;
+    }
+    nav button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    nav button.active {
+      background-color: #2e7d32;
+      font-weight: bold;
+    }
+    .quiz-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+    /* Add any more styling as needed */
+  </style>
+</head>
+<body>
+  <nav>
+    <button id="btnDelsu" class="active">DELSU</button>
+    <button id="btnUniben">UNIBEN</button>
+    <button id="btnNursing">School of Nursing</button>
+  </nav>
+
+  <div class="quiz-container" id="quizContainer">
+    <!-- Quiz content will load here -->
+    <h2>Welcome to DELSU Quiz</h2>
+    <p>Select a quiz from above to start.</p>
+  </div>
+
+  <script>
+    const quizContainer = document.getElementById('quizContainer');
+    const btnDelsu = document.getElementById('btnDelsu');
+    const btnUniben = document.getElementById('btnUniben');
+    const btnNursing = document.getElementById('btnNursing');
+
+    function setActiveButton(activeBtn) {
+      [btnDelsu, btnUniben, btnNursing].forEach(btn => {
+        btn.classList.remove('active');
+      });
+      activeBtn.classList.add('active');
+    }
+
+    btnDelsu.addEventListener('click', () => {
+      setActiveButton(btnDelsu);
+      loadDelsuQuiz();
+    });
+
+    btnUniben.addEventListener('click', () => {
+      setActiveButton(btnUniben);
+      loadUnibenQuiz();
+    });
+
+    btnNursing.addEventListener('click', () => {
+      setActiveButton(btnNursing);
+      loadNursingQuiz();
+    });
+
+    function loadDelsuQuiz() {
+      quizContainer.innerHTML = '<h2>DELSU Quiz Coming Soon...</h2>';
+      // Here you can call your Delsu.js quiz logic to display questions
+    }
+
+    function loadUnibenQuiz() {
+      quizContainer.innerHTML = '<h2>UNIBEN Quiz Coming Soon...</h2>';
+      // Load Uniben quiz here
+    }
+
+    function loadNursingQuiz() {
+      quizContainer.innerHTML = '<h2>School of Nursing Quiz Coming Soon...</h2>';
+      // Load Nursing quiz here
+    }
+
+    // Initially load DELSU quiz or welcome screen
+    loadDelsuQuiz();
+  </script>
+</body>
+</html>
